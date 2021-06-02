@@ -1,0 +1,93 @@
+.user-container {
+    font-family: 'Poppins', sans-serif; 
+    display: flex; 
+    justify-content: center;
+}
+
+.user-wrapper {
+    width: 60%; 
+    border-right: 1px solid #EAECEE; 
+    border-left: 1px solid #EAECEE; 
+    padding: 40px 20px; 
+    min-height: 100vh;
+}
+
+.identity {
+    display: flex; 
+    align-items: center;
+}
+
+.avatar {
+    padding: 20px; 
+    margin-right: 20px; 
+    width: 60px; 
+    height: 60px; 
+    border-radius: 8px; 
+    color: #ffffff; 
+    background-color: #081c15; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 32px;
+}
+
+.name {
+    font-size: 28px; 
+    line-height: 40px;
+}
+
+.address {
+    font-size: 14px; 
+    color: grey; 
+    margin-top: 0;
+}
+
+.my-stories {
+    margin-top: 60px;
+}
+
+.each-story {
+    display: flex; 
+    align-items: flex-start; 
+    margin: 20px 0
+}
+
+.date {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    border: 1px solid grey; 
+    margin-right: 20px; 
+    padding: 5px 10px; 
+    color: red
+}
+
+.place {
+    color: grey; 
+    font-weight: 200; 
+    font-size: 14px;
+}
+
+.text {
+    font-weight: 300;
+}
+
+.buttons {
+    margin-top: 5px;
+}
+
+.like {
+    display: flex; 
+    align-items: center; 
+    font-size: 13px;
+}
+
+.icon {
+    color: grey; 
+    margin-right: 5px; 
+}
+
+.number {
+    font-weight: 200;
+}
