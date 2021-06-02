@@ -1,0 +1,185 @@
+.place-container {
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.place-banner {
+    height: 40vh;
+    overflow: hidden;
+    z-index: 1
+}
+
+.place-info {
+    z-index: 5
+}
+
+.wrapper {
+    padding: 0 20%
+}
+
+.quick-info {
+    display: inline-block;
+    margin-top: -100px
+}
+
+.place-icon {
+    padding: 30px;
+    border-radius: 50%;
+    background-color: #081c15;
+    color: white;
+    width: 80px;
+    height: 80px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 40px; 
+    margin-right: 20px
+}
+
+.place-name {
+    font-size: 32px;
+}
+
+.details {
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 60px;
+}
+
+.stories {
+    margin: -10px 0 0 10px; 
+    width: 70%
+}
+
+.user-story {
+    height: 90px; 
+    font-size: 16px; 
+    width: 90%; 
+    min-width: 400px; 
+    border-radius: 8px; 
+    border: 1px solid #D0D0D0 ; 
+    padding: 20px
+}
+
+.shared-stories {
+    margin-top: 60px;
+}
+
+.each-story {
+    display: flex; 
+    align-items: flex-start; 
+    margin: 30px 0
+}
+
+.author-avatar {
+    background-color: #081c15; 
+    color: white; 
+    padding: 10px; 
+    border-radius: 50%; 
+    margin-right: 10px;  
+    width: 12%; 
+    min-width: 25px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.author-name {
+    font-weight: bold
+}
+
+.written-date {
+    font-size: 12px; 
+    color: grey
+}
+
+.story {
+    font-size: 16px; 
+    line-height: 30px 
+}
+
+.people {
+    margin-left: 20px; 
+    margin-right: -60px;
+}
+
+.individual-coming {
+    margin-top: -20px
+}
+
+.title {
+    padding-bottom: 5px; 
+    border-bottom: 1px solid silver; 
+    font-size: 18px; 
+    font-weight: bold;
+}
+
+.hikers {
+    display: flex; 
+    align-items: center; 
+    margin-top: 10px; 
+    font-size: 12px;
+}
+
+.each-hiker {
+    margin: 0 1px; 
+    border-radius: 50%; 
+    width: 18px; 
+    padding: 3px; 
+    background-color: #081c15; 
+    color: white; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.more-hikers {
+    text-decoration: none; 
+    color: inherit
+}
+
+.more-hikers-text {
+    margin-left: 2px
+}
+
+.group-coming {
+    margin-top: 40px
+}
+
+.title {
+    padding-bottom: 5px; 
+    border-bottom: 1px solid silver; 
+    font-size: 18px; 
+    font-weight: bold;
+}
+
+.hike-groups {
+    padding-top: 10px;
+}
+
+.each-group {
+    display: flex; 
+    align-items: center;
+}
+
+.group-avatar {
+    margin: 5px 0; 
+    padding: 10px; 
+    width: 30px; 
+    height: 30px; 
+    border-radius: 8px; 
+    background-color: #d8f3dc;  
+    margin-right: 10px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center
+}
+
+.grou-name-link {
+    text-decoration: none;
+}
+
+.group-name {
+    color: #1b4332;
+}
