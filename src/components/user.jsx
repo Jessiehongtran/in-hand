@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import '../style/user.css';
 import { API_URL } from '../apiConfig';
 
 export default class User extends React.Component {

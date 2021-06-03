@@ -78,7 +78,8 @@
     padding: 10px; 
     border-radius: 50%; 
     margin-right: 10px;  
-    width: 12%; 
+    width: 25px;
+    height: 25px; 
     min-width: 25px; 
     display: flex; 
     justify-content: center; 

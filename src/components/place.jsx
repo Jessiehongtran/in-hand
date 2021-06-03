@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import '../style/place.css';
 import { API_URL } from '../apiConfig';
 
 export default class Place extends React.Component {
@@ -71,26 +72,26 @@ export default class Place extends React.Component {
 
     render(){
 
-        const { placeId, indVisitors, groupVisitors, stories } = this.state;
+        const { place, indVisitors, groupVisitors, stories } = this.state;
 
-        console.log( placeId, indVisitors, groupVisitors, stories )
+        console.log( place, indVisitors, groupVisitors, stories )
 
         console.log('props in place', this.props)
 
         return (
             <div class="place-container">
                 <div class="place-banner" >
-                    <img src=""/>
+                    <img src={place.place_banner}/>
                 </div>
                 <div class="place-info">
                     <div class="wrapper">
                         <div class="quick-info" >
                             <div class="place-icon">
-                                Y
+                                {place.place_name[0]}
                             </div>
                             <div class="name-address">
-                                <div class="place-name" style="font-size: 32px; ">
-                                    Yosemite National Park
+                                <div class="place-name" >
+                                    {place.place_name}
                                 </div>
                             </div>
                         </div>
@@ -110,7 +111,7 @@ export default class Place extends React.Component {
                                                     {story.author_first_name + " " + story.author_last_name}
                                                 </div>
                                                 <div class="written-date">
-                                                    {this.turnIntToDate(story.created_timeInt)}
+                                                    {this.turnIntToDate(story.created_timeInt).m + " " + this.turnIntToDate(story.created_timeInt).d + ", " + this.turnIntToDate(story.created_timeInt).y}
                                                 </div>
                                                 <div class="story">
                                                     {story.content}
@@ -120,7 +121,8 @@ export default class Place extends React.Component {
                                         : null
                                     }
                                 </div>
-                                <div class="people">
+                            </div>
+                            <div class="people">
                                     <div class="individual-coming">
                                         <div class="title">
                                             Who are coming here
@@ -161,7 +163,6 @@ export default class Place extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>
