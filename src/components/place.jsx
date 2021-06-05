@@ -53,13 +53,18 @@ export default class Place extends React.Component {
     }
 
     turnIntToDate(n){
-        const y = Math.round(n/(365*24*3600) + 1970)
-        const m = Math.round((n - (y-1970)*365*24*3600)/(30*24*3600))
-        const d = Math.round((n- (y-1970)*365*24*3600 - m*30*24*3600)/(24*3600))
-
+        let y = Math.round(n/(365*24*3600) + 1970)
+        let m = Math.round((n - (y-1970)*365*24*3600)/(30*24*3600))
+        let d = Math.round((n- (y-1970)*365*24*3600 - m*30*24*3600)/(24*3600))
+        if (m < 0 ){
+            m = 0
+          }
+        if (d < 0){
+            d = 0
+          }
         return {
             y: y,
-            m: this.state.monthPairs[m-1],
+            m: m >= 1 ? this.state.monthPairs[m-1]: 0,
             d: d
         }
     }
@@ -109,22 +114,26 @@ export default class Place extends React.Component {
                                     {
                                         stories.length > 0
                                         ? stories.map(story => 
-                                        <div class="each-story">
-                                            <div class="author-avatar" onClick={() => this.showUser(story.author_id)}>
-                                                {story.author_first_name[0].toUpperCase()}
-                                            </div>
-                                            <div class="content">
-                                                <div class="author-name" onClick={() => this.showUser(story.author_id)}>
-                                                    {story.author_first_name + " " + story.author_last_name}
-                                                </div>
-                                                <div class="written-date">
-                                                    {this.turnIntToDate(story.created_timeInt).m + " " + this.turnIntToDate(story.created_timeInt).d + ", " + this.turnIntToDate(story.created_timeInt).y}
-                                                </div>
-                                                <div class="story">
-                                                    {story.content}
-                                                </div>
-                                            </div>
-                                        </div>)
+                                            {
+                                                let dateWritten = this.turnIntToDate(story.created_timeInt)
+                                                return <div class="each-story">
+                                                            <div class="author-avatar" onClick={() => this.showUser(story.author_id)}>
+                                                                {story.author_first_name[0].toUpperCase()}
+                                                            </div>
+                                                            <div class="content">
+                                                                <div class="author-name" onClick={() => this.showUser(story.author_id)}>
+                                                                    {story.author_first_name + " " + story.author_last_name}
+                                                                </div>
+                                                                <div class="written-date">
+                                                                    {dateWritten.m != 0 ? dateWritten.m : "" + " " + dateWritten.d != 0 ?  dateWritten.d + ", ": "" + dateWritten.y}
+                                                                </div>
+                                                                <div class="story">
+                                                                    {story.content}
+                                                                </div>
+                                                            </div>
+                                                      </div>
+                                            }
+                                        )
                                         : null
                                     }
                                 </div>
@@ -142,11 +151,14 @@ export default class Place extends React.Component {
                                         </div>)
                                         : null}
                                     </div>
-                                    <a href="" class="more-hikers" >
+                                    {indVisitors.length > 10
+                                    ? <a href="" class="more-hikers" >
                                         <div class="more-hikers-text">
-                                            +20 more 
+                                            +{indVisitors.length - 10} more 
                                         </div>
-                                    </a>
+                                      </a>
+                                    : null}
+                                    
                                 </div>
                                 <div class="group-coming">
                                     <div class="title" >
