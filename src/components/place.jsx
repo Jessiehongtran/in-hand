@@ -144,7 +144,7 @@ export default class Place extends React.Component {
                                     </div>
                                     <a href="" class="more-hikers" >
                                         <div class="more-hikers-text">
-                                            +20 more >
+                                            +20 more 
                                         </div>
                                     </a>
                                 </div>
