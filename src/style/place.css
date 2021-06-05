@@ -15,7 +15,8 @@
 }
 
 .wrapper {
-    padding: 0 20%
+    padding: 0 20%;
+    
 }
 
 .quick-info {
@@ -41,7 +42,7 @@
     font-size: 32px;
 }
 
-.details {
+.place-details {
     display: flex; 
     justify-content: space-between; 
     margin-top: 60px;
@@ -49,7 +50,14 @@
 
 .stories {
     margin: -10px 0 0 10px; 
-    width: 70%
+    width: 60%;
+
+}
+
+.people {
+    margin-left: 20px; 
+    margin-right: -60px;
+    width: 30%;
 }
 
 .user-story {
@@ -98,11 +106,6 @@
 .story {
     font-size: 16px; 
     line-height: 30px 
-}
-
-.people {
-    margin-left: 20px; 
-    margin-right: -60px;
 }
 
 .individual-coming {

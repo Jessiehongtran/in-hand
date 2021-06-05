@@ -7,13 +7,15 @@ export default class User extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-
+            user: {}
         }
     }
 
     async componentDidMount(){
+        const userId = this.props.location.state.userId
         try {
-            const user = await axios.get()
+            const user = await axios.get(`${API_URL}/users/${userId}`)
+            this.setState({user: user})
         } catch (err){
             console.log(err.message)
         }
@@ -42,25 +44,26 @@ export default class User extends React.Component {
                                 <p style={{margin: 0}}>Jan</p>
                                 <p style={{margin: 0}}>2</p>
                             </div>
-                        </div>
-                        <div class="details">
-                            <div class="place">
-                                At Yosemite National Park
-                            </div>
-                            <div class="text" >
-                                Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.
-                            </div>
-                            <div class="buttons">
-                                <div class="like">
-                                    <div class="icon">
-                                        <i class="far fa-heart"></i>
-                                    </div>
-                                    <div class="number" >
-                                        120
+                            <div class="user-details">
+                                <div class="place">
+                                    At Yosemite National Park
+                                </div>
+                                <div class="text" >
+                                    Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.
+                                </div>
+                                <div class="buttons">
+                                    <div class="like">
+                                        <div class="icon">
+                                            <i class="far fa-heart"></i>
+                                        </div>
+                                        <div class="number" >
+                                            120
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>

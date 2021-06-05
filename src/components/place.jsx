@@ -64,6 +64,13 @@ export default class Place extends React.Component {
         }
     }
 
+    showUser(userId){
+        this.props.history.push({
+            pathname: 'user',
+            state: { userId: userId }
+        })
+    }
+
     componentDidMount(){
         this.getIndVisitors()
         this.getGroupVisitors()
@@ -95,7 +102,7 @@ export default class Place extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div class="details">
+                        <div class="place-details">
                             <div class="stories">
                                 <textarea class="user-story" placeholder="Mike, how was your hike?" ></textarea>
                                 <div class="shared-stories">
@@ -103,11 +110,11 @@ export default class Place extends React.Component {
                                         stories.length > 0
                                         ? stories.map(story => 
                                         <div class="each-story">
-                                            <div class="author-avatar">
+                                            <div class="author-avatar" onClick={() => this.showUser(story.author_id)}>
                                                 {story.author_first_name[0].toUpperCase()}
                                             </div>
                                             <div class="content">
-                                                <div class="author-name">
+                                                <div class="author-name" onClick={() => this.showUser(story.author_id)}>
                                                     {story.author_first_name + " " + story.author_last_name}
                                                 </div>
                                                 <div class="written-date">
@@ -123,46 +130,47 @@ export default class Place extends React.Component {
                                 </div>
                             </div>
                             <div class="people">
-                                    <div class="individual-coming">
-                                        <div class="title">
-                                            Who are coming here
-                                        </div>
-                                        <div class="hikers">
-                                            { indVisitors.length > 0
-                                            ? indVisitors.map(visitor => 
-                                            <div class="each-hiker">
-                                                {visitor.hiker_first_name[0]}
-                                            </div>)
-                                            : null}
-                                        </div>
-                                        <a href="" class="more-hikers" >
-                                            <div class="more-hikers-text">
-                                                +20 more >
-                                            </div>
-                                        </a>
+                                <div class="individual-coming">
+                                    <div class="title">
+                                        Who are coming here
                                     </div>
-                                    <div class="group-coming">
-                                        <div class="title" >
-                                            Groups are coming here
+                                    <div class="hikers">
+                                        { indVisitors.length > 0
+                                        ? indVisitors.map(visitor => 
+                                        <div class="each-hiker" onClick={() => this.showUser(visitor.hiker_id)}>
+                                            {visitor.hiker_first_name[0]}
+                                        </div>)
+                                        : null}
+                                    </div>
+                                    <a href="" class="more-hikers" >
+                                        <div class="more-hikers-text">
+                                            +20 more >
                                         </div>
-                                        <div class="hike-groups">
-                                            {groupVisitors.length > 0
-                                            ? groupVisitors.map(group => 
-                                                <div class="each-group">
-                                                    <div class="group-avatar">
-                                                        {group.group_name[0]}
-                                                    </div>
-                                                    <a href="" class="group-name-link">
-                                                        <div class="group-name">
-                                                        {group.group_name}
-                                                        </div>
-                                                    </a>
+                                    </a>
+                                </div>
+                                <div class="group-coming">
+                                    <div class="title" >
+                                        Groups are coming here
+                                    </div>
+                                    <div class="hike-groups">
+                                        {groupVisitors.length > 0
+                                        ? groupVisitors.map(group => 
+                                            <div class="each-group">
+                                                <div class="group-avatar">
+                                                    {group.group_name[0]}
                                                 </div>
-                                            )
-                                            : null}
-                                        </div>
+                                                <a href="" class="group-name-link">
+                                                    <div class="group-name">
+                                                    {group.group_name}
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        )
+                                        : null}
                                     </div>
                                 </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
