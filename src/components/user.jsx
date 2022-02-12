@@ -11,32 +11,54 @@ export default class User extends React.Component {
         }
     }
 
+    async postConnection(friendIds){
+        try {
+            const response = await axios.post(`${API_URL}/friends`, friendIds)
+            console.log('res in posting friend connection', response)
+        } catch (err){
+            console.log(err.message)
+        }
+    }
+
+    addFriend(){
+        //if cur userId is different this user id then collect both of them and post connection 
+        //this is to prevent they connect with themselves :) which is most likely not happening but just in case
+        //where this cur userId stored? local storage?
+        
+    }
+
     async componentDidMount(){
         const userId = this.props.location.state.userId
         try {
             const user = await axios.get(`${API_URL}/users/${userId}`)
-            this.setState({user: user})
+            this.setState({user: user.data})
+            console.log('user', user.data)
         } catch (err){
             console.log(err.message)
         }
     }
 
     render(){
+        const { user } = this.state;
+
         return (
             <div class="user-container">
                 <div class="user-wrapper">
                     <div class="identity">
                         <div class="avatar">
-                            H
+                            {user.first_name[0]}
                         </div>
                         <div class="name-address">
                             <div class="name">
-                                Hong Tran
+                                {user.first_name}
                             </div>
                             <div class="address">
                                 San Jose, CA
                             </div>
                         </div>
+                    </div>
+                    <div class="add-friend">
+                        <button class="add-friend-btn">Add friend</button>
                     </div>
                     <div class="my-stories">
                         <div class="each-story">

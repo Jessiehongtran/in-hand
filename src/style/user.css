@@ -17,6 +17,21 @@
     align-items: center;
 }
 
+.add-friend {
+    margin-top: 20px;
+    
+}
+
+.add-friend-btn {
+    background-color: #FF6347;
+    border-radius: 4px;
+    padding: 8px 20px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
 .avatar {
     padding: 20px; 
     margin-right: 20px; 
